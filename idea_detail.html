@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h2>{{ idea.title }}</h2>
+        <p class="text-muted">{{ idea.category }} | {{ idea.tags }}</p>
+        <p>{{ idea.description }}</p>
+
+        <form method="POST" action="/idea/{{ idea.id }}/upvote">
+            {% if current_user.is_authenticated %}
+                <button type="submit" class="btn btn-outline-success btn-sm">❤️ Upvote</button>
+            {% else %}
+                <a href="/login" class="btn btn-outline-primary btn-sm">Login to upvote</a>
+            {% endif %}
+            <span class="ms-2">Total Upvotes: {{ idea.upvotes }}</span>
+        </form>
+    </div>
+</div>
+
+<hr>
+
+<h5 class="mt-4">💬 Comments & Feedback</h5>
+
+{% if comments %}
+    {% for comment in comments %}
+        <div class="border rounded p-2 mb-2">
+            <strong>{{ comment.user.username }}</strong>
+            <p class="mb-1">{{ comment.content }}</p>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No comments yet. Be the first to share feedback!</p>
+{% endif %}
+
+{% if current_user.is_authenticated %}
+    <form method="POST" action="/idea/{{ idea.id }}/comment" class="mt-3">
+        <div class="mb-3">
+            <textarea name="content" class="form-control" rows="3" placeholder="Write your comment..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm">Submit Comment</button>
+    </form>
+{% else %}
+    <p><a href="/login">Login</a> to leave a comment.</p>
+{% endif %}
+{% endblock %}

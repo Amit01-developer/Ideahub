@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">🚀 Explore Ideas Worth Building</h2>
+
+<!-- Search and Filter Bar -->
+<form method="GET" action="/" class="mb-4 d-flex gap-2">
+    <input type="text" name="q" class="form-control" placeholder="Search by tag, title or category" value="{{ request.args.get('q', '') }}">
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<!-- Idea Feed -->
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for idea in ideas %}
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ idea.title }}</h5>
+                <p class="card-text text-muted">{{ idea.category }} | {{ idea.tags }}</p>
+                <p class="card-text">{{ idea.description[:150] }}...</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="/idea/{{ idea.id }}" class="btn btn-sm btn-outline-primary">Explore</a>
+                    <span class="badge bg-success">❤️ {{ idea.upvotes }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <p>No ideas found. Be the first to post!</p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,134 @@
+/* General Layout */
+body {
+    background-color: #eaf5ed; /* light leafy green */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2f3e33;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #1e392a; /* dark green */
+    border-bottom: 3px solid #34c471;
+    padding: 10px 20px;
+}
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+    transition: color 0.3s ease;
+}
+.nav-link:hover {
+    color: #34c471 !important;
+}
+
+/* Container Styling */
+.container {
+    margin-top: 40px;
+    padding-bottom: 40px;
+}
+
+/* Cards for Ideas */
+.card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-title {
+    font-weight: 700;
+    color: #1e392a;
+    font-size: 1.25rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #475c4b;
+}
+
+/* Primary Button - Green */
+.btn-primary {
+    background-color: #34c471;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #28a75c;
+}
+
+/* Danger Button - Red */
+.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+/* Comment Box */
+.comment-box {
+    background-color: #ffffff;
+    border: 1px solid #cde8d3;
+    padding: 18px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+/* Form Elements */
+form input, form textarea, form select {
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #b4dbc3;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+form input:focus, form textarea:focus, form select:focus {
+    border-color: #34c471;
+    outline: none;
+}
+
+/* Flash Messages */
+.alert {
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-weight: 500;
+    background-color: #d4f4dd;
+    color: #2f5938;
+    border-left: 5px solid #34c471;
+}
+
+/* Tags */
+.tag {
+    background-color: #c6f2d5;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+    margin-right: 6px;
+    color: #1f593f;
+    display: inline-block;
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    padding: 25px 0;
+    text-align: center;
+    color: #556c60;
+    font-size: 0.9rem;
+    background-color: #dbeee1;
+    border-top: 1px solid #c3e4d0;
+}
